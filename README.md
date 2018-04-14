@@ -1,14 +1,5 @@
 <p align="center"><img src="docs/_media/img/gen.svg"/></p>
-
-<p align="center">
-  <a href="http://nodejs.cn/"><img src="https://img.shields.io/badge/Node.js%20-v8.9.3-green.svg" alt="Node"></a>
-
-  <a href="https://www.gulpjs.com.cn/"><img src="https://img.shields.io/badge/gulp.js-3.9.1-red.svg" alt="gulpjs"></a>
-
-
-  <a href="http://www.expressjs.com.cn/"><img src="https://img.shields.io/badge/express.js-4.16.3-blue.svg" alt="expressjs"></a>
-
-</p>
+<p align="center"><a href="http://nodejs.cn/"><img src="https://img.shields.io/badge/Node.js%20-v8.9.3-green.svg" alt="Node"></a><a href="https://www.gulpjs.com.cn/"><img src="https://img.shields.io/badge/gulp.js-3.9.1-red.svg" alt="gulpjs"></a><a href="http://www.expressjs.com.cn/"><img src="https://img.shields.io/badge/express.js-4.16.3-blue.svg" alt="expressjs"></a></p>
 
 # WHtml
 
