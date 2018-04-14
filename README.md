@@ -1,3 +1,5 @@
+<p align="center"><img src="_media/img/gen.svg"/></p>
+
 # WHtml
 
 > 一款让你用更加丝滑的方式来编写传统前端HTML页面
