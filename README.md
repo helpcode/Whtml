@@ -1,4 +1,4 @@
-<p align="center"><img src="_media/img/gen.svg"/></p>
+<p align="center"><img src="docs/_media/img/gen.svg"/></p>
 
 # WHtml
 
