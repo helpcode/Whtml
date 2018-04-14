@@ -1,0 +1,17 @@
+extends ./../layout
+
+//- 网站的头部信息这边拆分出来，便于每个页面的SEO配置和配置页面独有的css，js
+block title
+
+
+  title 首页
+  //- 组件独有的js文件，测试案例
+  script(src="js/demo.js")
+
+
+//- 网站的主体内容区域
+block content
+
+  .index
+    h1 默认首页de
+    p(onclick="demo()") 通过gulp编译后的html页面，点我触发事件
