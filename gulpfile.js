@@ -9,6 +9,7 @@ const cache = require('gulp-cache')
 const imagemin = require('gulp-imagemin')
 const zip = require('gulp-zip')
 const uglify = require('gulp-uglify')
+const plumber = require('gulp-plumber')
 
 // 引入gulp的配置文件
 const config = require('./config')
@@ -17,6 +18,10 @@ const { RemoveFile } = require('./utils')
 // 编译jade为html
 gulp.task('jade', function() {
     return gulp.src(config.jade.jadeTohtml)
+    .pipe(plumber({ errHandler: e => {
+        gutil.beep(); 
+        gutil.log(e);
+    }}))
     .pipe(jade({
         pretty: true
     }))
@@ -26,13 +31,17 @@ gulp.task('jade', function() {
 // 编译 less -> css，同时进行css3属性前缀自动补全，代码合并为一个文件，代码压缩
 gulp.task('less', function() {
     return gulp.src(config.less.lessTocss)
+    .pipe(plumber({ errHandler: e => {
+        gutil.beep(); 
+        gutil.log(e);
+    }}))
     .pipe(less())
     .pipe(autoprefixer({
         browsers: ['last 2 versions','last 2 Explorer versions','Android >= 4.0'],
             cascade: true
     }))
     .pipe(concat(config.less.lessToFileName))
-    //.pipe(cssmin())
+    .pipe(cssmin())
     .pipe(gulp.dest(config.less.lessTodist));
 });
 
@@ -58,19 +67,33 @@ gulp.task('file', function() {
 // 拷贝img 到dist文件夹
 gulp.task('copyimg',function(){
     return gulp.src('src/assets/img/*')
-        .pipe(gulp.dest('dist/img'))
+    .pipe(plumber({ errHandler: e => {
+        gutil.beep(); 
+        gutil.log(e);
+    }}))
+    .pipe(gulp.dest('dist/img'))
 })
 
 // 拷贝js 到 dist/ 文件夹
 gulp.task('copyjs',function(){
     return gulp.src('src/assets/js/*')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js'))
+    .pipe(plumber({ errHandler: e => {
+        gutil.beep(); 
+        gutil.log(e);
+    }}))
+    .pipe(uglify({
+        compress: true,
+      }))
+    .pipe(gulp.dest('dist/js'))
 })
 
 // 压缩 img
 gulp.task('img', function() {
-    return gulp.src('dist/img/*') 
+    return gulp.src('dist/img/*')
+    .pipe(plumber({ errHandler: e => {
+        gutil.beep(); 
+        gutil.log(e);
+    }}))
     .pipe(cache(imagemin({ 
       optimizationLevel: 7, 
       progressive: true, 
@@ -84,6 +107,10 @@ gulp.task('img', function() {
 // 部署阶段：zip打包 dist 文件夹，用于发布服务器
 gulp.task('Online',function(){
     return gulp.src(['./dist/**'])
+    .pipe(plumber({ errHandler: e => {
+        gutil.beep(); 
+        gutil.log(e);
+    }}))
     .pipe(zip('Online.zip'))
     .pipe(gulp.dest('./'))
 })
