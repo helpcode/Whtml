@@ -3,10 +3,10 @@ const jade = require('gulp-jade')
 const less = require("gulp-less")
 const autoprefixer = require('gulp-autoprefixer')
 const concat = require('gulp-concat')
-const cssmin = require('gulp-minify-css')
+const cssmin = require('gulp-clean-css')
 const watchPath = require('gulp-watch-path')
-const cache = require('gulp-cache')
 const imagemin = require('gulp-imagemin')
+const pngquant = require('imagemin-pngquant')
 const zip = require('gulp-zip')
 const uglify = require('gulp-uglify')
 const plumber = require('gulp-plumber')
@@ -41,7 +41,13 @@ gulp.task('less', function() {
             cascade: true
     }))
     .pipe(concat(config.less.lessToFileName))
-    .pipe(cssmin())
+    
+    .pipe(cssmin({
+        advanced: false,
+        compatibility: 'ie7',
+        keepBreaks: false,
+        keepSpecialComments: '*'
+    }))
     .pipe(gulp.dest(config.less.lessTodist));
 });
 
@@ -81,9 +87,9 @@ gulp.task('copyjs',function(){
         gutil.beep(); 
         gutil.log(e);
     }}))
-    .pipe(uglify({
-        compress: true,
-      }))
+    // .pipe(uglify({
+    //     compress: false
+    //   }))
     .pipe(gulp.dest('dist/js'))
 })
 
@@ -94,13 +100,14 @@ gulp.task('img', function() {
         gutil.beep(); 
         gutil.log(e);
     }}))
-    .pipe(cache(imagemin({ 
+    .pipe(imagemin({
       optimizationLevel: 7, 
       progressive: true, 
       interlaced: true,
       multipass: true,
+      use: [pngquant()],
       svgoPlugins: [{removeViewBox: false}]
-    })))
+    }))
     .pipe(gulp.dest('dist/img'))
 })
 

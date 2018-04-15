@@ -1,1 +1,3 @@
-function demo(){alert(1)}
+function demo(){
+    alert(1)
+}

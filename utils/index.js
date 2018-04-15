@@ -72,7 +72,7 @@ const ReturnFileName = (file, plug) => file.replace(plug,"")
  * 删除文件
  * @param {*string} path 文件路径
  */
-const deleteFile = (path) =>  fs.unlink(path, (err) => err ? console.error(err) : Notice("dist/ 对应文件已删除..."))
+const deleteFile = (path) =>  fs.unlink(path, (err) => err ? console.error(err) : Notice(`${path} 对应文件已删除...`))
 
 /**
  * 检索字符串中是否有匹配的字符
