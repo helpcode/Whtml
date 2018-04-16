@@ -7,8 +7,10 @@ module.exports = {
         "jadeTodist": "./dist/"
     },
     "less":{
-        // less -> css 需要监听转换的less文件路径
-        "lessTocss": "./src/assets/css/*.less",
+        // 将 public/ 公共的 less文件直接编译在dist/中生成对应的
+        "lessTocssPublic": "./src/assets/css/public/*.less",
+        // 将 page/ 中less编译合并
+        "lessTocssPage": "./src/assets/css/layout.less",
         // less 转换完成后，需要将多个文件合并成一个的文件名
         "lessToFileName":"main.css",
         // css 输出的路径
@@ -27,5 +29,6 @@ module.exports = {
         "log":"项目运行在:",
         // 是否开始自动打开浏览器功能，取值：true，false
         "isOpenBrowser": false
-    }
+    },
+    "tinify": "HnvJJnGoTK_5qLSkePBhrucOJ9EVVfeD"
 }

@@ -25,9 +25,31 @@ gulp.task('jade', function() {
     .pipe(gulp.dest(config.jade.jadeTodist))
 });
 
-// 编译 less -> css，同时进行css3属性前缀自动补全，代码合并为一个文件，代码压缩
-gulp.task('less', function() {
-    return gulp.src(config.less.lessTocss)
+// 编译公共页 css
+gulp.task('publicless', function() {
+    return gulp.src(config.less.lessTocssPublic)
+    .pipe(plumber({ errHandler: e => {
+        gutil.beep(); 
+        gutil.log(e);
+    }}))
+    .pipe(less())
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions','last 2 Explorer versions','Android >= 4.0'],
+            cascade: true
+    }))
+    // .pipe(concat(config.less.lessToFileName))
+    // .pipe(cssmin({
+    //     advanced: false,
+    //     compatibility: 'ie7',
+    //     keepBreaks: false,
+    //     keepSpecialComments: '*'
+    // }))
+    .pipe(gulp.dest(`${config.less.lessTodist}public`));
+});
+
+// 编译主要页面的 css，合并为main.css
+gulp.task('pageless', function() {
+    return gulp.src(config.less.lessTocssPage)
     .pipe(plumber({ errHandler: e => {
         gutil.beep(); 
         gutil.log(e);
@@ -38,16 +60,14 @@ gulp.task('less', function() {
             cascade: true
     }))
     .pipe(concat(config.less.lessToFileName))
-    
-    .pipe(cssmin({
-        advanced: false,
-        compatibility: 'ie7',
-        keepBreaks: false,
-        keepSpecialComments: '*'
-    }))
-    .pipe(gulp.dest(config.less.lessTodist));
+    // .pipe(cssmin({
+    //     advanced: false,
+    //     compatibility: 'ie7',
+    //     keepBreaks: false,
+    //     keepSpecialComments: '*'
+    // }))
+    .pipe(gulp.dest(`${config.less.lessTodist}page`));
 });
-
 
 // 监听用户在 src/的文件操作
 gulp.task('file', function() {
@@ -60,7 +80,7 @@ gulp.task('file', function() {
             break;
             default:
                 console.log('其他操作...')
-                gulp.run('less','jade','copyimg','copyjs','img','Online')
+                gulp.run('publicless','pageless','jade','copyimg','copyjs','img','Online')
             break;    
         }
     });
@@ -121,7 +141,7 @@ gulp.task('Online',function(){
 
 
   
-gulp.run(['less','jade','copyimg','copyjs','img','Online'])
+gulp.run('publicless','pageless','jade','copyimg','copyjs','img','Online')
 
 
 // 执行默认任务，然后执行任务watcher
