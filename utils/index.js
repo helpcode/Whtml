@@ -4,7 +4,7 @@ const clc = require('cli-color')
 const fs = require("fs")
 const path = require("path")
 const Base = path.resolve(__dirname, '../dist')
-
+const tinify = require("tinify");
 /**
  * 返回完整的网址
  */
@@ -80,5 +80,11 @@ const deleteFile = (path) =>  fs.unlink(path, (err) => err ? console.error(err) 
  */
 const SearchKey = (par, key) => par.indexOf(key) != -1 ? true : false
 
+// const tinifyImagemin = (paths) => {
+//     tinify.key = config.tinify
+//     let Rrl = path.resolve(__dirname, `../src/assets/img/${paths}`)
+//     let source = tinify.fromFile(Rrl);
+//     source.toFile("dede.png");
+// }
 
 module.exports = { OpenBrowser, RemoveFile }

@@ -69,23 +69,6 @@ gulp.task('pageless', function() {
     .pipe(gulp.dest(`${config.less.lessTodist}page`));
 });
 
-// 监听用户在 src/的文件操作
-gulp.task('file', function() {
-    gulp.watch(config.watch.watchFile, function(event) {
-        let paths = watchPath(event,'src/', 'Template/src/')
-        switch (event.type){
-            case 'deleted':
-                console.log('删除操作...')
-                RemoveFile(paths.srcFilename)
-            break;
-            default:
-                console.log('其他操作...')
-                gulp.run('publicless','pageless','jade','copyimg','copyjs','img','Online')
-            break;    
-        }
-    });
-  });
-
 
 // 拷贝img 到dist文件夹
 gulp.task('copyimg',function(){
@@ -110,24 +93,6 @@ gulp.task('copyjs',function(){
     .pipe(gulp.dest('dist/js'))
 })
 
-// 压缩 img
-gulp.task('img', function() {
-    return gulp.src('dist/img/*')
-    .pipe(plumber({ errHandler: e => {
-        gutil.beep(); 
-        gutil.log(e);
-    }}))
-    // .pipe(imagemin({
-    //   optimizationLevel: 7, 
-    //   progressive: true, 
-    //   interlaced: true,
-    //   multipass: true,
-    //   use: [pngquant()],
-    //   svgoPlugins: [{removeViewBox: false}]
-    // }))
-    .pipe(gulp.dest('dist/img'))
-})
-
 // 部署阶段：zip打包 dist 文件夹，用于发布服务器
 gulp.task('Online',function(){
     return gulp.src(['./dist/**'])
@@ -139,9 +104,30 @@ gulp.task('Online',function(){
     .pipe(gulp.dest('./'))
 })
 
-
+// 监听用户在 src/的文件操作
+gulp.task('file', function() {
+    gulp.watch(config.watch.watchFile, function(event) {
+        let paths = watchPath(event,'src/', 'Template/src/')
+        console.log(paths)
+        switch (event.type){
+            case 'deleted':
+                console.log('删除操作...')
+                RemoveFile(paths.srcFilename)
+            break;
+            default:
+                //  if(paths.srcDir.indexOf('img')>-1){
+                //     tinifyImagemin(paths.srcFilename)
+                //  }else{
+                //      console.log('其他操作...')
+                //  }
+                console.log('其他操作...')
+                gulp.run('publicless','pageless','jade','copyjs','copyimg','Online')
+            break;    
+        }
+    });
+  });
   
-gulp.run('publicless','pageless','jade','copyimg','copyjs','img','Online')
+gulp.run('publicless','pageless','jade','copyjs','copyimg','Online')
 
 
 // 执行默认任务，然后执行任务watcher
