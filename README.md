@@ -1,16 +1,16 @@
 <p align="center"><img src="docs/_media/img/gen.svg"/></p>
 <p align="center"><a href="http://nodejs.cn/"><img src="https://img.shields.io/badge/Node.js%20-v8.9.3-green.svg" alt="Node"></a> <a href="https://www.gulpjs.com.cn/"><img src="https://img.shields.io/badge/gulp.js-3.9.1-red.svg" alt="gulpjs"></a> <a href="http://www.expressjs.com.cn/"><img src="https://img.shields.io/badge/express.js-4.16.3-blue.svg" alt="expressjs"></a></p>
 
-# WHtml
+## WHtml
 
 > 一款让你用更加丝滑的方式来编写传统前端HTML页面
 
 - 1: 文档地址：[Whtml](https://helpcode.github.io/Whtml/#/)
 - 2: 创想工作室QQ群：[399041912](http://shang.qq.com/wpa/qunwpa?idkey=6311ead3dd326b975b76cb90590535973515776cf83d0854c0dc7b4a5c9cebfb)
 
-# 介绍
+## 介绍
 
----
+
 
 当你在编写传统HTML页面的时候是否曾经遇到过静态页面众多导致html，css，ja代码过度冗余，将大部分时间花在不断的ctrl+c，ctrl+v上，是否想过能将传统静态页面的公共部分例如头部和底部分离出来，不需要每次的复制粘贴，是否想过css代码频繁重复为何不能像写JavaScript那样封装成函数直接调用。
 
@@ -24,7 +24,6 @@
 
 `WHtml`能够让你获得以下更加爽快的体验：
 
----
 
 - 1: 将静态页面组件化模块化，降低重复代码的重复编写。
 
@@ -47,6 +46,5 @@
 
 ## 捐赠
 
----
 
 如果你觉得 `WHtml` 对你有帮助，或者想对我微小的工作一点资瓷，欢迎给我提建议。
