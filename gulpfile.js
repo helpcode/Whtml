@@ -5,14 +5,11 @@ const autoprefixer = require('gulp-autoprefixer')
 const concat = require('gulp-concat')
 const cssmin = require('gulp-clean-css')
 const watchPath = require('gulp-watch-path')
-const imagemin = require('gulp-imagemin')
-const pngquant = require('imagemin-pngquant')
 const zip = require('gulp-zip')
 const uglify = require('gulp-uglify')
 const plumber = require('gulp-plumber')
-
 // 引入gulp的配置文件
-const config = require('./config')
+const config = require('./config/index.js')
 const { RemoveFile } = require('./utils')
 
 // 编译jade为html
@@ -100,14 +97,14 @@ gulp.task('img', function() {
         gutil.beep(); 
         gutil.log(e);
     }}))
-    .pipe(imagemin({
-      optimizationLevel: 7, 
-      progressive: true, 
-      interlaced: true,
-      multipass: true,
-      use: [pngquant()],
-      svgoPlugins: [{removeViewBox: false}]
-    }))
+    // .pipe(imagemin({
+    //   optimizationLevel: 7, 
+    //   progressive: true, 
+    //   interlaced: true,
+    //   multipass: true,
+    //   use: [pngquant()],
+    //   svgoPlugins: [{removeViewBox: false}]
+    // }))
     .pipe(gulp.dest('dist/img'))
 })
 
