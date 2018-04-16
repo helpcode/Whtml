@@ -1,6 +1,6 @@
 .DS_Store
 node_modules/
-dist/
+dist/ 
 .git-credentials
 Online.zip
 npm-debug.log*
