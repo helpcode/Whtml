@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "all": "node_modules/.bin/concurrently \" node_modules/.bin/node-dev app.js \" \"node_modules/.bin/gulp \" ",
-    "doc": "node_modules/.bin/docsify serve ./docs"
+    "doc": "node_modules/.bin/docsify serve ./docs",
+    "push": "./sh/push.sh"
   },
   "keywords": [],
   "author": "",
