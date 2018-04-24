@@ -41,7 +41,8 @@ const Notice = (log) => {
 }
 
 /**
- * 当前端从src源码中删除某文件(jade，js，img)的时候，那么删除对应dist/中编译后文件
+ * 当前端从src源码中删除某文件(jade，js，img,css)的时候，那么删除对应dist/中编译后文件
+ * 这里我的思路有点乱，代码等待改进
  * @param {*string} filename 
  */
 const RemoveFile = (filename) => {
@@ -49,9 +50,14 @@ const RemoveFile = (filename) => {
         deleteFile(ReturnFullUrl(ReturnFileName(filename,'jade'),'html'))
     }else if(SearchKey(filename,'js')){
         deleteFile(ReturnFullUrl(ReturnFileName(filename,'js'),'js'))
-    }else if(SearchKey(filename,'styl') || 
-    SearchKey(filename,'mp3')){
+    }else if(SearchKey(filename,'styl') || SearchKey(filename,'mp3')){
         Notice("忽略该文件...")
+    }else if(SearchKey(filename,'css')){
+        deleteFile(ReturnFullUrl(ReturnFileName(filename,'.css'),'css'))
+    }else if(SearchKey(filename,'woff2')){
+        deleteFile(ReturnFullUrl(ReturnFileName(filename,'.woff2'),'woff2'))
+    }else if(SearchKey(filename,'ttf')){
+        deleteFile(ReturnFullUrl(ReturnFileName(filename,'.ttf'),'ttf'))
     }else{
         deleteFile(`${Base}/img/${filename}`)
     }
@@ -66,6 +72,9 @@ const ReturnFullUrl = (name, type) => {
     switch(type) {
         case 'html': return `${Base}/${name}${type}`; break;
         case 'js': return `${Base}/js/${name}${type}`; break;
+        case 'css': return `${Base}/css/public/${name}.${type}`; break;
+        case 'woff2': return `${Base}/font/${name}.${type}`; break;
+        case 'ttf': return `${Base}/font/${name}.${type}`; break;
         default:; break; 
     }
 }
