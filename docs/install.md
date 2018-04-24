@@ -15,7 +15,7 @@
 - 1: 基于Node.js开发
 - 2: gulp作为自动化构建工具
 - 3: HTML模板引擎采用jade
-- 4: less作为项目css的预编译器
+- 4: stylus作为项目css的预编译器
 - 5: 使用express的来托管gulp编译后的dist/静态文件夹，启动nodejs服务器来访问静态网站查看效果。
 - 6: concurrently 实现命令的多条并发执行
 - 7: cli-color 实现终端命令行输出彩色信息

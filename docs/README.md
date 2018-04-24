@@ -27,7 +27,7 @@
 
 - 2: 基于Node.js + Gulp 自动化构建项目，让前端的你无缝对接
 
-- 3: 采用jade + less，用更加简洁高效的方式去书写html和css
+- 3: 采用jade + stylus，用更加简洁高效的方式去书写html和css
 
 - 4: 自动压缩合并编译html，css，JavaScript使的项目具备更加优秀的响应速度
 
