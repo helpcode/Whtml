@@ -43,9 +43,10 @@
 │           ├── footer.jade      #公共版权
 │           └── header.jade      #公共头部
 └── utils                        #框架需要用的工具类
-    └── index.js
+│   └── index.js
+└── sh                           #shell脚本
+    └── push.sh                  #自动提交代码到github
 
-19 directories, 36 files
 ```
 
 仔细阅读上面对各个文件的作用的解释，这里很关键。
