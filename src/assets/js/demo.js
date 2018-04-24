@@ -1,3 +1,3 @@
 function demo(){
-    alert(1)
+    alert('index.jade 组件独有的js')
 }

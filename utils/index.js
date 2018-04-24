@@ -1,10 +1,20 @@
+/**
+ * 全局公共函数
+ */
+
+// 自动打开浏览器
 const open = require('open');
+// 配置信息
 const config = require('./../config')
+// 终端输出颜色
 const clc = require('cli-color')
+// 文件操作
 const fs = require("fs")
+// 路径操作
 const path = require("path")
+// 获取文件基准地址
 const Base = path.resolve(__dirname, '../dist')
-const tinify = require("tinify");
+
 /**
  * 返回完整的网址
  */
@@ -39,7 +49,7 @@ const RemoveFile = (filename) => {
         deleteFile(ReturnFullUrl(ReturnFileName(filename,'jade'),'html'))
     }else if(SearchKey(filename,'js')){
         deleteFile(ReturnFullUrl(ReturnFileName(filename,'js'),'js'))
-    }else if(SearchKey(filename,'less') || 
+    }else if(SearchKey(filename,'styl') || 
     SearchKey(filename,'mp3')){
         Notice("忽略该文件...")
     }else{
@@ -80,11 +90,5 @@ const deleteFile = (path) =>  fs.unlink(path, (err) => err ? console.error(err) 
  */
 const SearchKey = (par, key) => par.indexOf(key) != -1 ? true : false
 
-// const tinifyImagemin = (paths) => {
-//     tinify.key = config.tinify
-//     let Rrl = path.resolve(__dirname, `../src/assets/img/${paths}`)
-//     let source = tinify.fromFile(Rrl);
-//     source.toFile("dede.png");
-// }
 
 module.exports = { OpenBrowser, RemoveFile }

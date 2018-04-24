@@ -1,3 +1,6 @@
+/**
+ * 网站配置信息
+ */
 
 module.exports = {
     "jade":{
@@ -6,15 +9,16 @@ module.exports = {
         // html 输出的路径
         "jadeTodist": "./dist/"
     },
-    "less":{
-        // 将 public/ 公共的 less文件直接编译在dist/中生成对应的
-        "lessTocssPublic": "./src/assets/css/public/*.less",
-        // 将 page/ 中less编译合并
-        "lessTocssPage": "./src/assets/css/layout.less",
-        // less 转换完成后，需要将多个文件合并成一个的文件名
-        "lessToFileName":"main.css",
+    "styl":{
+        // 将 public/ 公共的 styl 文件直接编译在 dist/ 中生成对应的
+        "stylTocssPublic": "./src/assets/css/public/*.styl",
+        "cssToDist": "",
+        // 将 page/ 中 styl 编译合并
+        "stylTocssPage": "./src/assets/css/layout.styl",
+        // styl 转换完成后，需要将多个文件合并成一个的文件名
+        "stylToFileName":"main.css",
         // css 输出的路径
-        "lessTodist":"./dist/css/"
+        "stylTodist":"./dist/css/"
     },
     "watch":{
         // gulp 需要监听的文件路径，当我们在src修改源码时，gulp会动态编译输出到dist
@@ -29,6 +33,5 @@ module.exports = {
         "log":"项目运行在:",
         // 是否开始自动打开浏览器功能，取值：true，false
         "isOpenBrowser": false
-    },
-    "tinify": "HnvJJnGoTK_5qLSkePBhrucOJ9EVVfeD"
+    }
 }

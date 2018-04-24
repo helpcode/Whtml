@@ -1,11 +1,11 @@
 {
   "name": "whtml",
-  "version": "1.1.6",
-  "description": "A HTML automation framework",
+  "version": "1.1.7",
+  "description": "An HTML automatic compiler framework",
   "main": "app.js",
   "scripts": {
-    "all": "concurrently \" node-dev app.js \" \"gulp \" ",
-    "doc": "docsify serve ./docs"
+    "all": "node_modules/.bin/concurrently \" node_modules/.bin/node-dev app.js \" \"node_modules/.bin/gulp \" ",
+    "doc": "node_modules/.bin/docsify serve ./docs"
   },
   "keywords": [],
   "author": "",
@@ -13,21 +13,20 @@
   "devDependencies": {
     "cli-color": "^1.2.0",
     "concurrently": "^3.5.1",
+    "docsify-cli": "^4.2.1",
     "express": "^4.16.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-base64": "^0.1.3",
     "gulp-clean-css": "^3.9.3",
     "gulp-concat": "^2.6.1",
     "gulp-jade": "^1.1.0",
-    "gulp-less": "^3.5.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-plumber": "^1.2.0",
+    "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.0",
     "gulp-watch-path": "^0.1.0",
     "gulp-zip": "^4.1.0",
     "node-dev": "^3.1.3",
-    "open": "0.0.5",
-    "tinify": "^1.5.0"
+    "open": "0.0.5"
   }
 }
