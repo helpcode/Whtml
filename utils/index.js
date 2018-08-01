@@ -37,13 +37,13 @@ const OpenBrowser = () => {
 const Notice = (log) => {
     // 终端输入运行的颜色
     let notice = clc.greenBright.bold;
-    console.log(notice(log));    
+    console.log(notice(log));
 }
 
 /**
  * 当前端从src源码中删除某文件(jade，js，img,css)的时候，那么删除对应dist/中编译后文件
  * 这里我的思路有点乱，代码等待改进
- * @param {*string} filename 
+ * @param {*string} filename
  */
 const RemoveFile = (filename) => {
     if(SearchKey(filename,'jade')){
@@ -75,7 +75,7 @@ const ReturnFullUrl = (name, type) => {
         case 'css': return `${Base}/css/public/${name}.${type}`; break;
         case 'woff2': return `${Base}/font/${name}.${type}`; break;
         case 'ttf': return `${Base}/font/${name}.${type}`; break;
-        default:; break; 
+        default:; break;
     }
 }
 
@@ -84,7 +84,7 @@ const ReturnFullUrl = (name, type) => {
  * @param {*string} file 文件完整名称
  * @param {*string} plug 需要检测的文件后缀
  */
-const ReturnFileName = (file, plug) => file.replace(plug,"") 
+const ReturnFileName = (file, plug) => file.replace(plug,"")
 
 
 /**
