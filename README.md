@@ -3,7 +3,7 @@
 
 ## WHtml
 
-> 一款让你用更加丝滑的方式来编写传统前端HTML页面
+> 一款让你用更加丝滑更符合组件化思想的方式来编写传统前端HTML页面
 - 1: **脚手架地址：[whtml-cli](https://www.npmjs.com/package/whtml-cli)**
 - 2: 文档地址：[Whtml](https://helpcode.github.io/Whtml/#/)
 - 2: 创想工作室QQ群：[399041912](http://shang.qq.com/wpa/qunwpa?idkey=6311ead3dd326b975b76cb90590535973515776cf83d0854c0dc7b4a5c9cebfb)
