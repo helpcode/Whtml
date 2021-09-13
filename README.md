@@ -23,7 +23,10 @@ cnpm i -g concurrently node-dev gulp gulp-cli
 3: 初始化运行
 
 ```bash
-npm install  #初始化依赖
+#初始化依赖
+npm install  
+# 或者使用cnpm
+cnpm install 
 
 npm run all  #运行网站
 ```
