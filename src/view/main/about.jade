@@ -2,17 +2,17 @@ extends ./../layout
 
 //- 网站的头部信息这边拆分出来，便于每个页面的SEO配置和配置页面独有的css
 block title
- 
-  title 首页
-  link(rel="stylesheet", href="css/page/index.css")
+
+  title 关于我
+  link(rel="stylesheet", href="css/page/about.css")
 
 
 //- 网站的主体内容区域
 block content
 
-  .index
-    h1 默认首页
+  .about 
+    h3 关于我 (打开控制台查看js执行)
 
 //- 这里引入页面独有的js文件
 block script   
-  script(src="js/page/index.js") 
+  script(src="js/page/about.js") 

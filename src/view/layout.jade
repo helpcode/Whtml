@@ -9,8 +9,8 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="renderer" content="webkit")
     meta(http-equiv="Cache-Control" content="no-siteapp")
-    link(rel='stylesheet', href='css/page/main.css')
-    script(src="js/jquery.js")
+    link(rel="stylesheet", href="css/lib/bootstrap.css")
+    link(rel="stylesheet", href="css/page/reset.css")
 
     block title
 
@@ -24,3 +24,9 @@ html
 
     //- 公共网站版权
     include ./public/footer
+
+//- 所有页面都需要用的js文件在这里引入    
+script(src="js/lib/jquery.js")
+script(src="js/config/index.js")
+
+block script    

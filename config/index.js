@@ -14,7 +14,7 @@ module.exports = {
     stylTocssPublic: "./src/assets/css/public/*.styl",
     cssToDist: "",
     // 将 page/ 中 styl 编译合并
-    stylTocssPage: "./src/assets/css/layout.styl",
+    stylTocssPage: "./src/assets/css/page/*.styl",
     // styl 转换完成后，需要将多个文件合并成一个的文件名
     stylToFileName: "main.css",
     // css 输出的路径

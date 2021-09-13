@@ -41,10 +41,10 @@ gulp.task('jade', function() {
 
 
 /**
- *  编译公共页 css
- */
-gulp.task('publicstyl', function() {
-    return gulp.src(config.styl.stylTocssPublic)
+ *  编译reset css
+ */ 
+gulp.task('resetstyl', function() {
+    return gulp.src("./src/assets/css/public/reset.styl")
     .pipe(plumber({ errHandler: e => {
         gutil.beep() 
         gutil.log(e)
@@ -63,12 +63,12 @@ gulp.task('publicstyl', function() {
     //     keepBreaks: false,
     //     keepSpecialComments: '*'
     // }))
-    .pipe(gulp.dest(DistPublic))
+    .pipe(gulp.dest(`${config.styl.stylTodist}/page`))
 })
 
 
 /**
- * 编译主要页面的 css，合并为main.css
+ * 编译主要页面的 css
  */
 gulp.task('pagestyl', function() {
     return gulp.src(config.styl.stylTocssPage)
@@ -81,7 +81,6 @@ gulp.task('pagestyl', function() {
         browsers: ['last 2 versions','last 2 Explorer versions','Android >= 4.0'],
             cascade: true
     }))
-    .pipe(concat(config.styl.stylToFileName))
     /**
      * 同上
      */
@@ -91,15 +90,15 @@ gulp.task('pagestyl', function() {
     //     keepBreaks: false,
     //     keepSpecialComments: '*'
     // }))
-    .pipe(gulp.dest(`${config.styl.stylTodist}page`))
+    .pipe(gulp.dest(`${config.styl.stylTodist}/page`))
 })
 
 /**
- * 拷贝 public中的第三方css到dist文件夹
+ * 拷贝 lib中第三方css到dist文件夹
  */
 gulp.task('copycss',function(){
-    return gulp.src('src/assets/css/public/*.css')
-    .pipe(plumber({ errHandler: e => {
+    return gulp.src('src/assets/css/lib/**/*.css')
+    .pipe(plumber({ errHandler: e => { 
         gutil.beep() 
         gutil.log(e)
     }}))
@@ -109,14 +108,14 @@ gulp.task('copycss',function(){
         keepBreaks: false,
         keepSpecialComments: '*'
     }))
-    .pipe(gulp.dest(DistPublic))
+    .pipe(gulp.dest(`${config.styl.stylTodist}lib`))
 })
 
 /**
  * 拷贝img 到dist文件夹
  */
 gulp.task('copyimg',function(){
-    return gulp.src('src/assets/img/*')
+    return gulp.src('src/assets/img/**/*')
     .pipe(plumber({ errHandler: e => {
         gutil.beep() 
         gutil.log(e)
@@ -128,7 +127,7 @@ gulp.task('copyimg',function(){
  * 拷贝字体文件
  */
 gulp.task('copyfont',function(){
-    return gulp.src('src/assets/font/*')
+    return gulp.src('src/assets/font/**/*')
     .pipe(plumber({ errHandler: e => {
         gutil.beep() 
         gutil.log(e)
@@ -141,7 +140,7 @@ gulp.task('copyfont',function(){
  * 拷贝js文件
  */
 gulp.task('copyjs',function(){
-    return gulp.src('src/assets/js/*')
+    return gulp.src('src/assets/js/**/*')
     .pipe(plumber({ errHandler: e => {
         gutil.beep() 
         gutil.log(e)
@@ -183,7 +182,7 @@ gulp.task('file', function() {
             break
             default:
                 console.log('其他操作...')
-                gulp.run('publicstyl','copyfont','pagestyl','jade','copyjs','copyimg','copycss','Online')
+                gulp.run('resetstyl','copyfont','pagestyl','jade','copyjs','copyimg','copycss','Online')
             break    
         }
     })
@@ -193,7 +192,7 @@ gulp.task('file', function() {
 /**
  * 默认先运行一次 编译过程
  */
-gulp.run('publicstyl','copyfont','pagestyl','jade','copyjs','copyimg','copycss','Online')
+gulp.run('resetstyl','copyfont','pagestyl','jade','copyjs','copyimg','copycss','Online')
 
 
 /**
