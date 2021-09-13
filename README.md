@@ -28,7 +28,8 @@ npm install
 # 或者使用cnpm
 cnpm install 
 
-npm run all  #运行网站
+#运行网站
+npm run all  
 ```
 
 ## 介绍
