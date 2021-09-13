@@ -6,8 +6,21 @@
 > 一款让你用更加丝滑更符合组件化思想的方式来编写传统前端HTML页面
 - 1: **脚手架地址：[whtml-cli](https://www.npmjs.com/package/whtml-cli)**
 - 2: 文档地址：[Whtml](https://helpcode.github.io/Whtml/#/)
-- 2: 创想工作室QQ群：[399041912](http://shang.qq.com/wpa/qunwpa?idkey=6311ead3dd326b975b76cb90590535973515776cf83d0854c0dc7b4a5c9cebfb)
 
+## 安装
+
+1: 请使用 [whtml-cli](https://www.npmjs.com/package/whtml-cli) 进行安装，当然你也可以直接**下载**或**clone拉取**本仓库的代码到本地。
+
+2: 第1步完成后，你需要先全局安装下面几个模块，使用一下命令：
+
+```bash
+npm i -g concurrently node-dev gulp gulp-cli
+
+# 或者使用cnpm
+cnpm i -g concurrently node-dev gulp gulp-cli
+```
+
+3: 
 
 ## 介绍
 
