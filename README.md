@@ -20,7 +20,13 @@ npm i -g concurrently node-dev gulp gulp-cli
 cnpm i -g concurrently node-dev gulp gulp-cli
 ```
 
-3: 
+3: 初始化运行
+
+```bash
+npm install  #初始化依赖
+
+npm run all  #运行网站
+```
 
 ## 介绍
 
